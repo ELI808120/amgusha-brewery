@@ -701,6 +701,253 @@ body::after{
   opacity:.8;
 }
 
+/* ---------- games ---------- */
+.games{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(233,146,45,.25), transparent 45%),
+    var(--violet);
+  color:var(--cream);
+  border-top:4px solid var(--ink);
+  border-bottom:4px solid var(--ink);
+}
+.games .section__title{ background:var(--orange); color:var(--ink); }
+.games .section__note{ background:var(--cream); color:var(--ink); }
+.games .section__shout{ background:var(--cream); color:var(--ink); }
+.games .section__shout{ animation-name:jolt; }
+
+.games__grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(288px,1fr));
+  gap:1.8rem;
+  align-items:start;
+}
+.game{
+  display:flex;
+  flex-direction:column;
+  gap:.85rem;
+  padding:1.2rem 1.1rem 1.2rem;
+  background:var(--paper);
+  color:var(--ink);
+  border:var(--bd) solid var(--ink);
+  box-shadow:8px 8px 0 var(--ink);
+}
+.game:nth-child(odd){ transform:rotate(-.9deg); }
+.game:nth-child(even){ transform:rotate(.8deg); margin-top:1.2rem; }
+
+.game__title{
+  font-family:var(--f-he);
+  font-weight:900;
+  font-size:1.45rem;
+  line-height:1.15;
+  padding-bottom:.4rem;
+  border-bottom:3px solid var(--ink);
+}
+.game__desc{ margin:0; font-size:.92rem; line-height:1.6; }
+.game__hud{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  font-family:var(--f-mono);
+  font-size:.7rem;
+  letter-spacing:.08em;
+}
+.game__hud span{
+  padding:.2rem .6rem;
+  background:var(--cream-dk);
+  border:2px solid var(--ink);
+}
+.game__hud b{ font-family:var(--f-he); font-weight:900; font-size:.95rem; }
+.game__out{
+  margin:0;
+  min-height:3.4em;
+  padding:.55rem .7rem;
+  background:var(--ink);
+  color:var(--yellow);
+  font-size:.88rem;
+  line-height:1.55;
+}
+.game__btn{ align-self:flex-start; }
+
+/* ---------- 1. whack ---------- */
+.whack{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:.5rem;
+  padding:.7rem;
+  background:var(--orange);
+  border:3px solid var(--ink);
+}
+.whack.shake{ animation:shakeit .38s ease; }
+@keyframes shakeit{
+  0%,100%{ transform:translateX(0); }
+  25%{ transform:translateX(-7px) rotate(-1deg); }
+  75%{ transform:translateX(7px) rotate(1deg); }
+}
+.whack__hole{
+  position:relative;
+  aspect-ratio:1;
+  padding:0;
+  border:2px solid var(--ink);
+  background:var(--cream-dk);
+  cursor:pointer;
+  overflow:hidden;
+}
+.whack__mound{
+  position:absolute;
+  left:8%; right:8%; bottom:8%;
+  height:26%;
+  background:var(--ink);
+  border-radius:50% 50% 30% 30%;
+}
+.whack__critter{
+  position:absolute;
+  left:50%; bottom:10%;
+  width:74%; height:74%;
+  transform:translate(-50%, 130%);
+  transition:transform .16s ease;
+  color:var(--ink);
+  display:grid;
+  place-items:center;
+}
+.whack__critter img{ width:88%; height:88%; object-fit:contain; }
+.whack__jackal{ display:block; width:88%; height:88%; }
+.whack__hole.is-up .whack__critter{ transform:translate(-50%, 0); }
+.whack__hole.is-hit{ background:var(--berry); }
+
+/* ---------- 2. mash tun ---------- */
+.mash{ display:flex; flex-direction:column; gap:.7rem; }
+.mash__track{
+  position:relative;
+  height:46px;
+  background:var(--cream-dk);
+  border:3px solid var(--ink);
+  overflow:hidden;
+}
+.mash__zone{
+  position:absolute;
+  top:0; bottom:0;
+  inset-inline-start:32%;
+  width:30%;
+  background:var(--sage);
+  border-inline:3px solid var(--ink);
+}
+.mash__needle{
+  position:absolute;
+  top:0; bottom:0;
+  inset-inline-start:0%;
+  width:6px;
+  margin-inline-start:-3px;
+  background:var(--berry);
+  border:2px solid var(--ink);
+}
+.mash__tun{
+  height:86px;
+  background:var(--cream-dk);
+  border:3px solid var(--ink);
+  display:flex;
+  align-items:flex-end;
+  overflow:hidden;
+}
+.mash__fill{
+  width:100%;
+  height:0%;
+  background:linear-gradient(var(--orange), var(--berry));
+  border-top:3px solid var(--ink);
+  transition:height .3s ease;
+}
+
+/* ---------- 3. quiz ---------- */
+.quiz{ min-height:9.5em; }
+.quiz__q{
+  margin:0 0 .7rem;
+  font-family:var(--f-he);
+  font-weight:900;
+  font-size:1.05rem;
+  line-height:1.4;
+}
+.quiz__n{
+  display:inline-block;
+  margin-inline-end:.4rem;
+  padding:.1rem .45rem;
+  background:var(--berry);
+  color:var(--cream);
+  font-family:var(--f-mono);
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.1em;
+  vertical-align:middle;
+}
+.quiz__d{ margin:0; font-size:.92rem; line-height:1.6; }
+.quiz__opts{ display:flex; flex-direction:column; gap:.4rem; }
+.quiz__opt{
+  padding:.5rem .65rem;
+  text-align:start;
+  background:var(--cream);
+  border:2px solid var(--ink);
+  box-shadow:3px 3px 0 var(--ink);
+  font-family:var(--f-he);
+  font-size:.92rem;
+  cursor:pointer;
+  transition:transform .1s ease, background .12s ease;
+}
+.quiz__opt:hover{ background:var(--orange); transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--ink); }
+.quiz__opt:active{ transform:translate(3px,3px); box-shadow:0 0 0 var(--ink); }
+
+/* ---------- 4. contract ---------- */
+.contract{
+  position:relative;
+  min-height:11.5em;
+  padding:.9rem;
+  background:var(--cream-dk);
+  border:3px solid var(--ink);
+}
+/* The seal is 86px tall plus a 0.6rem offset, so the clause stack needs a
+   little over 6rem of clearance or the stamp lands on top of the text. */
+.contract__lines{ margin-bottom:6.8rem; }
+.contract__line{
+  margin:0 0 .35rem;
+  padding:.25rem .45rem;
+  background:var(--paper);
+  border:2px solid var(--ink);
+  font-size:.86rem;
+  line-height:1.5;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .25s ease, transform .25s ease;
+}
+.contract__line.is-on{ opacity:1; transform:translateY(0); }
+.contract__seal{
+  position:absolute;
+  inset-block-end:.6rem;
+  inset-inline-start:.7rem;
+  width:86px; height:86px;
+  padding:0;
+  border:3px solid var(--ink);
+  border-radius:50%;
+  background:
+    linear-gradient(var(--fill, 0%), var(--orange) var(--fill, 0%)),
+    var(--cream);
+  box-shadow:3px 3px 0 var(--ink);
+  cursor:pointer;
+  font-family:var(--f-he);
+  font-weight:900;
+  touch-action:none;
+  user-select:none;
+}
+.contract__seal-txt{ font-size:.9rem; }
+.contract__seal.is-holding{ box-shadow:1px 1px 0 var(--ink); transform:translate(2px,2px); }
+.contract__seal.is-stamped{
+  background:var(--berry);
+  color:var(--cream);
+  transform:rotate(-11deg) scale(1.04);
+  animation:stampit .45s ease;
+}
+@keyframes stampit{
+  0%{ transform:rotate(-11deg) scale(2.1); opacity:0; }
+  60%{ opacity:1; }
+  100%{ transform:rotate(-11deg) scale(1.04); }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width:900px){
   .hero__inner{ grid-template-columns:1fr; }
@@ -715,8 +962,10 @@ body::after{
   .btn--xl{ width:100%; text-align:center; }
   .hero__actions{ width:100%; }
   .card:nth-child(even){ margin-top:0; }
+  .game:nth-child(even){ margin-top:0; }
   .nav__links{ width:100%; }
   .nav__links a{ flex:1 1 auto; text-align:center; }
+  .whack{ gap:.35rem; padding:.45rem; }
 }
 
 @media (prefers-reduced-motion:reduce){

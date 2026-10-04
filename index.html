@@ -38,11 +38,13 @@
 <!-- ============ TOP TICKER ============ -->
 <div class="ticker ticker--top" aria-hidden="true">
   <div class="ticker__track">
+    <span>ארבעה משחקים&nbsp;✦&nbsp;אפס נדיבות&nbsp;✦&nbsp;</span><span>בירה שתשתה לך את הדירה&nbsp;✦&nbsp;</span>
     <span>בירת קראפט ישראלית&nbsp;✦&nbsp;</span><span>מבשלת אמגושא&nbsp;✦&nbsp;</span>
     <span>בירה שתשתה לך את הדירה&nbsp;✦&nbsp;</span><span>אמגושה ושמרים אורגים&nbsp;✦&nbsp;</span>
     <span>בירת קראפט ישראלית&nbsp;✦&nbsp;</span><span>מבשלת אמגושא&nbsp;✦&nbsp;</span>
-    <span>בירה שתשתה לך את הדירה&nbsp;✦&nbsp;</span><span>אמגושה ושמרים אורגים&nbsp;✦&nbsp;</span>
+    <span>ארבעה משחקים&nbsp;✦&nbsp;אפס נדיבות&nbsp;✦&nbsp;</span><span>בירה שתשתה לך את הדירה&nbsp;✦&nbsp;</span>
     <span>בירת קראפט ישראלית&nbsp;✦&nbsp;</span><span>מבשלת אמגושא&nbsp;✦&nbsp;</span>
+    <span>בירה שתשתה לך את הדירה&nbsp;✦&nbsp;</span><span>אמגושה ושמרים אורגים&nbsp;✦&nbsp;</span>
   </div>
 </div>
 
@@ -61,6 +63,7 @@
     <a href="#lineup">הבירות</a>
     <a href="#taproom">המבשלת</a>
     <a href="#folklore">האגדה</a>
+    <a href="#games">משחקים</a>
     <a class="nav__cta" href="#visit">בואו לשתות <span aria-hidden="true">←</span></a>
   </nav>
 </header>
@@ -251,6 +254,86 @@
   </div>
 </section>
 
+<!-- ============ GAMES ============ -->
+<section class="section games" id="games">
+  <header class="section__head">
+    <h2 class="section__title">המשחקים של אמגושא</h2>
+    <p class="section__note">( ארבעה משחקים. אפס נדיבות. )</p>
+    <p class="section__shout">צריך להקיא, לא עמדת בבירה שלנו?</p>
+  </header>
+
+  <div class="games__grid">
+
+    <!-- ---------- 1. WHACK ---------- -->
+    <article class="game">
+      <header class="game__head">
+        <h3 class="game__title">מלחמת הלינקס</h3>
+        <p class="game__desc">על הרמה מגיעים צבי־ים ומנסים לדחוף את הלינקס מהגבעה. תכו בצביים. אל תכו בלינקס — היא לא עשתה לך כלום.</p>
+      </header>
+      <div class="game__hud">
+        <span>ניקוד <b id="whack-score">0</b></span>
+        <span>שניות <b id="whack-time">20</b></span>
+      </div>
+      <div class="whack" id="whack-board" role="group" aria-label="לוח מלחמת הלינקס"></div>
+      <button class="btn btn--primary game__btn" id="whack-start" type="button">תחילת המלחמה</button>
+      <p class="game__out" id="whack-out" aria-live="polite">הלינקס ממתינה. יש לך 20 שניות.</p>
+    </article>
+
+    <!-- ---------- 2. MASH TUN ---------- -->
+    <article class="game">
+      <header class="game__head">
+        <h3 class="game__title">מכונת השמשה</h3>
+        <p class="game__desc">שבע פעמים לעשות את המשמעת. עצור באזור הירוק. תחת או מעל — הכד יקבל החלטה אחרת.</p>
+      </header>
+      <div class="game__hud">
+        <span>סבב <b id="mash-round">0</b>/7</span>
+        <span>צפיפות <b id="mash-gravity">1.000</b></span>
+      </div>
+      <div class="mash" id="mash-board">
+        <div class="mash__track" id="mash-track">
+          <span class="mash__zone"></span>
+          <span class="mash__needle" id="mash-needle"></span>
+        </div>
+        <div class="mash__tun" aria-hidden="true">
+          <div class="mash__fill" id="mash-fill"></div>
+        </div>
+      </div>
+      <button class="btn btn--primary game__btn" id="mash-start" type="button">מתחילים להרס את השיבולת</button>
+      <p class="game__out" id="mash-out" aria-live="polite">הכד ריק. השמשה ריקה. בואו נראה מה יצא.</p>
+    </article>
+
+    <!-- ---------- 3. QUIZ ---------- -->
+    <article class="game">
+      <header class="game__head">
+        <h3 class="game__title">כמה בירה אתה?</h3>
+        <p class="game__desc">ארבע שאלות. אין תשובות נכונות. יש תוצאה, והתוצאה תשתה אותך.</p>
+      </header>
+      <div class="quiz" id="quiz-board" aria-live="polite">
+        <p class="quiz__q">לחצו התחלה. הכד מוכן.</p>
+      </div>
+      <button class="btn btn--primary game__btn" id="quiz-start" type="button">ענו על הכול</button>
+      <p class="game__out" id="quiz-out" aria-live="polite">אין כאן מישהו שישפט אתכם. אולי.</p>
+    </article>
+
+    <!-- ---------- 4. CONTRACT ---------- -->
+    <article class="game">
+      <header class="game__head">
+        <h3 class="game__title">חוזה הלינקס</h3>
+        <p class="game__desc">הלינקס כותבת חוזה. החוזה כבר כתוב. יש לו רק תאריך שחסר לו.</p>
+      </header>
+      <div class="contract" id="contract-board">
+        <div class="contract__lines" id="contract-lines"></div>
+        <button class="contract__seal" id="contract-seal" type="button" aria-label="לחצו כדי לחתום את החוזה">
+          <span class="contract__seal-txt">לחתימה</span>
+        </button>
+      </div>
+      <button class="btn btn--ghost game__btn" id="contract-reset" type="button">התחל מחדש</button>
+      <p class="game__out" id="contract-out" aria-live="polite">החתימה כבר שם מאז 2019. אתה רק צריך לעקוף אותה.</p>
+    </article>
+
+  </div>
+</section>
+
 <!-- ============ VISIT ============ -->
 <section class="section visit" id="visit">
   <div class="visit__card">
@@ -301,5 +384,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="games.js"></script>
 </body>
 </html>
