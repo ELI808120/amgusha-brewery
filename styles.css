@@ -295,13 +295,34 @@ body::after{
 }
 
 .hero__logo-card{
+  position:relative;
   margin:0;
-  padding:1.6rem 1.2rem;
+  padding:2.6rem 1.4rem 1.6rem;
   background:var(--orange);
   border:4px solid var(--ink);
   box-shadow:12px 12px 0 var(--ink);
   transform:rotate(1.6deg);
+  overflow:hidden;
 }
+/* rotating sunburst behind the logo — brand colours, not neon */
+.spin{
+  position:absolute;
+  top:50%; left:50%;
+  width:210%; aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:repeating-conic-gradient(
+    var(--plum)  0deg 9deg,
+    var(--berry) 9deg 18deg,
+    var(--sage)  18deg 27deg,
+    var(--orange)27deg 36deg
+  );
+  opacity:.5;
+  animation:spin 26s linear infinite;
+  pointer-events:none;
+}
+@keyframes spin{ to{ transform:translate(-50%,-50%) rotate(360deg); } }
+.hero__logo{ position:relative; width:100%; height:auto; }
 .hero__stat-strip{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -349,6 +370,27 @@ body::after{
   font-family:var(--f-mono);
   font-size:.75rem;
   transform:rotate(1.4deg);
+}
+
+/* the shout — loud, tilted, impossible to ignore */
+.section__shout{
+  display:inline-block;
+  margin:.9rem 0 0;
+  padding:.5rem 1.1rem;
+  background:var(--berry);
+  color:var(--cream);
+  border:3px solid var(--ink);
+  box-shadow:6px 6px 0 var(--ink);
+  font-family:var(--f-he);
+  font-weight:900;
+  font-size:clamp(1.05rem,3vw,1.6rem);
+  line-height:1.25;
+  transform:rotate(-2.2deg);
+  animation:jolt 3.6s ease-in-out infinite;
+}
+@keyframes jolt{
+  0%,100%{ transform:rotate(-2.2deg) translateY(0); }
+  50%    { transform:rotate(-2.2deg) translateY(-5px); }
 }
 
 /* ---------- lineup cards ---------- */
