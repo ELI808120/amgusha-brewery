@@ -198,57 +198,129 @@
      ============================================================ */
   (function quiz() {
     var board = $('quiz-board'), outEl = $('quiz-out'), btn = $('quiz-start');
+    // answer key -> the Hebrew letter shown to the player
+    var KEYS = [
+      { key: 'a', label: 'א' },
+      { key: 'b', label: 'ב' },
+      { key: 'c', label: 'ג' },
+      { key: 'd', label: 'ד' }
+    ];
+
+    // Six questions, four answers each. `a`/`b`/`c`/`d` is the letter the
+    // answer votes for. Options are shuffled per question so the letter
+    // never sits in the same place twice.
     var Q = [
       {
-        q: 'יום ראשון, 11:00. מה אתה עושה?',
-        a: [
-          { t: 'שותה קפה כמו אדם מגונה', s: 0 },
-          { t: 'כבר שותה משהו שקר מוקדם יותר', s: 3 },
-          { t: 'בבית. עם הסדנה. עם צדידות.', s: 1 }
-        ]
+        q: 'איך נראה סוף השבוע האידיאלי שלך?',
+        a: {
+          a: 'טיול ארוך בטבע, שקט, לברוח מהעיר ומהרעש.',
+          b: 'מסיבה טובה עם חברים — הרבה אנשים, מוזיקה ואנרגיה גבוהה.',
+          c: 'רביצה בבית מול סדרה טובה או משחק מחשב, עם פיצה חמה.',
+          d: 'לשבת בפאב שכונתי עם חבר טוב ולחשוב על החיים.'
+        }
       },
       {
-        q: 'חבר שואל אותך אם אתה בסדר. מה אתה אומר?',
-        a: [
-          { t: '"כן." ומשנה נושא', s: 0 },
-          { t: '"בסדר גמור." וממשיך לבר', s: 3 },
-          { t: '"תלוי באיזה יום בשבוע."', s: 2 }
-        ]
+        q: 'מה הגישה שלך כשאתה צריך החלטה גדולה בחיים?',
+        a: {
+          a: 'זורם עם מה שקורה, סומך על הלב ורואה לאן הרוח תיקח אותי.',
+          b: 'מתכנן הכל מראש קלה כחמורה, עושה טבלאות אקסל ובודק סיכונים.',
+          c: 'שואל את כל החברים והמשפחה, ואז עושה מה שבא לי.',
+          d: 'הולך על האופציה הכי מקורית, נועזת ולא שגרתית שיש.'
+        }
       },
       {
-        q: 'מה הפחד הגדול ביותר שלך?',
-        a: [
-          { t: 'שאין מספיק כסף', s: 0 },
-          { t: 'שתישאר לבד', s: 2 },
-          { t: 'שתעבוד יותר מדי ותשנא את עצמך', s: 3 }
-        ]
+        q: 'איזו מוזיקה תשים ברקע כשאתה נוסע באוטו?',
+        a: {
+          a: 'רוק כבד או מטאל שיעשה פה בלאגן וירים את האנרגיה.',
+          b: 'מוזיקה קלאסית, ג׳אז רגוע או פודקאסט מעניין שמעביר את הזמן בשקט.',
+          c: 'פופ קצבי ומשמח שכולם מכירים ויכולים לזמזם איתך.',
+          d: 'מוזיקה שחורה, היפ-הופ או אלקטרוני עם באסים עמוקים.'
+        }
       },
       {
-        q: 'המבשלה שלנו מציעה לך בירה. אתה:',
-        a: [
-          { t: 'לוקח, מודה, שותה, מתחיל מחדש', s: 3 },
-          { t: 'לוקח ומנסה להיות נעים על זה', s: 1 },
-          { t: 'אומר "תודה" ולא שותה כלום', s: 0 }
-        ]
+        q: 'איך החברים שלך היו מתארים אותך במשפט אחד?',
+        a: {
+          a: '"החבר הנאמן שתמיד אפשר לסמוך עליו שיהיה שם כשצריך."',
+          b: '"הנשמה של החבורה — זה שתמיד מצחיק ודואג שכולם יחייכו."',
+          c: '"הראש השקט והחכם שיודע לפתור כל בעיה בהיגיון."',
+          d: '"ההרפתקן הספונטני שתמיד ממציא רעיונות משוגעים."'
+        }
+      },
+      {
+        q: 'מה הדרך המועדפת עליך להתמודד עם יום ארוך ומעייף במיוחד?',
+        a: {
+          a: 'מקלחת טובה, פיג׳מה ולישון מוקדם בלי לחשוב יותר מדי.',
+          b: 'להדליק על האש ולהכין ארוחה רצינית שתפנק את כולם.',
+          c: 'אימון כוח קורע או ריצה, כדי לשחרר את כל האגרסיות.',
+          d: 'לשבת במרפסת עם כוס משקה מול השקיעה ולא לדבר עם אף אחד שעה שלמה.'
+        }
+      },
+      {
+        q: 'נקלעת לאי בודד ויש לך רק פריט אחד לקחת. מה אתה בוחר?',
+        a: {
+          a: 'סכין שוויצרית רב-תכליתית. כי אי אפשר לדעת מה יקרה.',
+          b: 'מערכת שמע חזקה עם אלף שירים אהובים.',
+          c: 'ספר עבה במיוחד שלא נגמר לעולם.',
+          d: 'חכה טובה, כדי לתפוס ארוחת ערב כמו שצריך.'
+        }
       }
     ];
-    var RESULTS = [
-      { min: 0, t: 'אתה בירת לייטר', d: 'שקוף, מר, וכולם מתעלמים ממך. אתה לא הסובייקט הכי טעים כאן, אבל אתה שומר על הבליט.' },
-      { min: 6, t: 'אתה אמגושה קשוחה', d: 'מר, ישר, ומגיע למקום. שני אנשים סביבך צוחקים. האחד מהם צוחק איתך.' },
-      { min: 9, t: 'אתה לילה שחור', d: 'שועל, קפה, שמנה. אתה מגיע מאוחר ואתה יוצא צלול. אף אחד לא זוכר איך נכנסת.' },
-      { min: 12, t: 'אתה הסובייקט הכי תמים שיצא מהפה', d: 'כמעט לא שוכרת. מתוקה כמזה. כולם אומרים שאתה לא מספיק מוצלח — אתה פשוט לא מתאמץ.' }
-    ];
 
-    var i = 0, score = 0;
+    var RESULTS = {
+      a: {
+        t: 'אתה בירת חיטה מרעננת',
+        beer: 'WHEAT',
+        d: 'אתה אדם של שקט, מרחבים וטבע. אתה יודע לקחת את הזמן ולא נותן ללחץ היומי לשבור אותך. אתה מחפש פשטות איכותית ויודע להעריך את הרגעים הקטנים בחיים.',
+        f: 'החברים אומרים עליך: אתה האיש היציב שאפשר תמיד לברוח איתו מהבלגן של העיר.'
+      },
+      b: {
+        t: 'אתה לאגר קליל וזורם',
+        beer: 'LAGER',
+        d: 'אתה הנשמה של כל חבורה. חברותי, ספונטני, זורם עם מה שבא — ומכניס אנרגיה טובה לכל מקום שאתה מגיע אליו. אתה לא עושה עניין גדול מדברים ומעדיף ליהנות מהחיים.',
+        f: 'החברים אומרים עליך: שבלעדיך המסיבה או המפגש פשוט משעממים.'
+      },
+      c: {
+        t: 'אתה לילה שחור',
+        beer: 'STOUT',
+        d: 'יש לך עומק פנימי רציני. אתה אדם חושב, מעדיף את השקט והפינה שלך על פני המולה מיותרת, ויש לך עולם פנימי עשיר. אתה אוהב דברים אמיתיים בלי זיופים, ומעריך עומק ואיכות.',
+        f: 'החברים אומרים עליך: אתה האדם הכי אמין וחכם ששווה להתייעץ איתו כשצריך עצה אמיתית.'
+      },
+      d: {
+        t: 'אתה אמגושה קשוחה',
+        beer: 'IPA',
+        d: 'אתה טיפוס נועז, שאוהב בועט, לא שגרתי ולא מפחד ללכת נגד הזרם. יש לך טעם ייחודי משלך, ואתה אוהב את החיים שלך עם קצב, עניין ואופי חזק.',
+        f: 'החברים אומרים עליך: אתה אף פעם לא משעמם, ותמיד מפתיע ברעיונות מקוריים.'
+      }
+    };
+
+    // On a tie the deepest wins — it fits the brand and keeps the result
+    // deterministic instead of depending on answer order.
+    var TIEBREAK = ['c', 'd', 'a', 'b'];
+
+    var i = 0, tally = { a: 0, b: 0, c: 0, d: 0 };
 
     function render(html) { board.innerHTML = html; }
+
+    // Fisher-Yates, so the letter position changes every run.
+    function shuffled(obj) {
+      var keys = KEYS.slice();
+      for (var j = keys.length - 1; j > 0; j--) {
+        var k = Math.floor(Math.random() * (j + 1));
+        var tmp = keys[j]; keys[j] = keys[k]; keys[k] = tmp;
+      }
+      return keys.map(function (o) {
+        return { letter: o.key, label: o.label, text: obj[o.key] };
+      });
+    }
 
     function ask() {
       if (i >= Q.length) return finish();
       var item = Q[i];
-      var html = '<p class="quiz__q"><span class="quiz__n">שאלה ' + (i + 1) + '/' + Q.length + '</span>' + item.q + '</p><div class="quiz__opts">';
-      item.a.forEach(function (opt, k) {
-        html += '<button type="button" class="quiz__opt" data-k="' + k + '">' + opt.t + '</button>';
+      var html = '<p class="quiz__q"><span class="quiz__n">שאלה ' + (i + 1) + '/' + Q.length + '</span>' + item.q + '</p>' +
+        '<div class="quiz__opts">';
+      shuffled(item.a).forEach(function (opt) {
+        html += '<button type="button" class="quiz__opt" data-l="' + opt.letter + '">' +
+          '<span class="quiz__mark">' + opt.label + '</span>' + opt.text + '</button>';
       });
       html += '</div>';
       render(html);
@@ -256,23 +328,40 @@
     }
 
     function finish() {
-      var r = RESULTS[0];
-      RESULTS.forEach(function (x) { if (score >= x.min) r = x; });
-      render('<p class="quiz__q"><span class="quiz__n">התוצאה</span>' + r.t + '</p><p class="quiz__d">' + r.d + '</p>');
-      outEl.textContent = 'ניקוד ' + score + ' מתוך 12. ' + (score >= 12 ? 'הקערה שלך ריקה. מעולה.' : 'הקערה שלך ריקה. לפעמים.');
+      var best = TIEBREAK[0], bestN = -1;
+      TIEBREAK.forEach(function (L) {
+        if (tally[L] > bestN) { bestN = tally[L]; best = L; }
+      });
+      var r = RESULTS[best];
+      var tied = TIEBREAK.filter(function (L) { return tally[L] === bestN; });
+
+      var html = '<p class="quiz__q"><span class="quiz__n">התוצאה שלך</span>' + r.t +
+        '</p><p class="quiz__beer">' + r.beer + '</p><p class="quiz__d">' + r.d +
+        '</p><p class="quiz__friends">' + r.f + '</p>';
+
+      if (tied.length > 1) html += '<p class="quiz__tie">פער אחד, והוא נגדך. הלינקס פסקה לטובת ' +
+        r.beer + '.</p>';
+
+      html += '<p class="quiz__score">' +
+        KEYS.map(function (o) { return o.label + '׳ ' + tally[o.key]; }).join(' · ') + '</p>';
+
+      render(html);
+      outEl.textContent = 'שש שאלות, אפס תשובות נכונות, בירה אחת. ' +
+        (tied.length > 1 ? 'הצבע שלך היה כמעט שווה.' : 'הצבע שלך לא היה כמעט.');
       btn.textContent = 'שאלות אחרות';
     }
 
     board.addEventListener('click', function (e) {
       var b = e.target.closest('.quiz__opt');
-      if (!b) return;
-      score += Q[i].a[+b.dataset.k].s;
+      if (!b || i >= Q.length) return;
+      tally[b.dataset.l] += 1;
       i += 1;
       ask();
     });
 
     btn.addEventListener('click', function () {
-      i = 0; score = 0;
+      i = 0;
+      tally = { a: 0, b: 0, c: 0, d: 0 };
       btn.textContent = 'מחדש';
       ask();
     });
