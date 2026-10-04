@@ -1,4 +1,4 @@
-/* AMGU'SHA BREWERY — minimal behaviour: age gate + year. */
+/* אמגושא · AMGU'SHA — gate + footer year. */
 (function () {
   'use strict';
 
@@ -26,11 +26,11 @@
 
   if (yes) yes.addEventListener('click', unlock);
 
-  // The liar option still lets them in — but the kettle remembers.
+  // גם השקרן נכנס — אבל הלינקס זוכרת.
   if (no) {
     no.addEventListener('click', function () {
       unlock();
-      no.textContent = 'KEPT. THE KETTLE REMEMBERS YOU.';
+      no.textContent = 'נכנסת. הלינקס זוכרת אותך.';
     });
   }
 
