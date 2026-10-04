@@ -1,45 +1,82 @@
-# AMGU'SHA BREWERY — אמגושא
+# אמגושא · AMGU'SHA
 
-Landing page for the Amgu'sha Brewery craft beer brand. Static site — plain
-HTML, hand-written CSS, one SVG. No framework, no build step, no template.
+דף נחיתה (landing page) למותג בירת הקראפט **אמגושא**.
+אתר סטטי — HTML, CSS ו־JS רגילים, בלי פריימוורק ובלי שלב build.
+כל האתר בעברית ובכיוון RTL.
 
-## Run locally
+**Live:** https://amgusha-brewery.vercel.app
 
-```bash
-python3 -m http.server 8080   # then open http://localhost:8080
-```
-
-## Files
-
-| Path              | Purpose                                            |
-|-------------------|----------------------------------------------------|
-| `index.html`      | Full page markup (hero, lineup, taproom, folklore, footer) |
-| `styles.css`      | All styling — neo-brutalist system, palette, motion |
-| `script.js`       | Age-verification gate + footer year                |
-| `assets/mascot.svg` | Witch-lynx mascot (original placeholder art)     |
-
-## Design system
-
-- Borders: `4px solid #000`, hard shadows `5px 5px 0 #000`
-- Palette: yellow `#FFE600`, purple `#5B21B6`, pink `#FF2D8D`, orange `#FF6A00`,
-  emerald `#00C46A`, charcoal `#141414`, bone `#F4EDDF`
-- Type: Archivo Black (display) / Space Mono (UI) / Special Elite (body)
-- Layout: asymmetric grid, tilted cards, overlapping tape labels, running tickers,
-  SVG grain + scanline overlays
-- Accessibility: skip-to-content is handled by semantic landmarks, `prefers-reduced-motion`
-  disables all animation, focus rings are visible, alt text on all images
-
-## Replace the mascot
-
-`assets/mascot.svg` is original placeholder art. Swap in the real logo by
-replacing that file (keep it square, ~512px).
-
-## Deploy
-
-Any static host works. On Vercel:
+## הרצה מקומית
 
 ```bash
-npx vercel --prod
+python3 -m http.server 8080   # ואז http://localhost:8080
 ```
 
-No build command needed — Vercel serves the directory as static output.
+## קבצים
+
+| נתיב | תפקיד |
+|---|---|
+| `index.html` | כל העמוד — hero, הבירות, המבשלת, האגדה, footer, שער גיל |
+| `styles.css` | כל העיצוב — מערכת פולק־ארט/מוזאיק, פלטה, תנועה |
+| `script.js` | שער אימות גיל (`localStorage`) + שנת footer |
+| `assets/logo-ink.png` | הלוגו המלא — ראש הלינקס + "אמגושא" בכתב יד, שקוף |
+| `assets/lynx-head.png` | ראש הלינקס בלבד, שקוף — משמש ב־nav, footer, folklore ו־age gate |
+| `assets/label-pale-ale.jpg` | תווית אמיתית של Pale Ale |
+| `assets/bottles.jpg` | בקבוקים וארגז בסדנה |
+| `assets/taproom-sign.jpg` | השלט מעץ על קיר האבן |
+
+## נכסי המותג
+
+כל התמונות נגזרו מהארט המקורי של המותג בתיקיית `Amgu'sha/`:
+
+- **הלוגו** — הרקע הלבן הוסר ב־threshold, והקובץ נחתך לגבולות התוכן האמיתיים.
+- **ראש הלינקס** — חולץ באמצעות **מיפוי רכיבים קשורים** (connected components):
+  ראש הלינקס הוא הקומפוננטה הגדולה ביותר, וכל הקומפוננטות האחרות הן אותיות העבריות
+  של הכתיב. זה נכון יותר מחיתוך לפי קופסה ידנית, שנשבעת לשבור את הראש או
+  להשאיר שברי אותיות.
+- הקבצים `(1).png`, `(2).png` ו־`_.png` זהים זה לזה (`md5` זהה) — נעשה שימוש באחד בלבד.
+- כל התמונות הוקטנו ל־900px ודחוסו (`quality=80, progressive`) כדי לשמור על משקל העמוד.
+
+## מערכת העיצוב
+
+הפלטה **נדגמה מתווית ה־Pale Ale**, לא נבחרה אקראית:
+
+| תפקיד | צבע |
+|---|---|
+| קרם (רקע) | `#F4EED3` |
+| שזיף | `#732E68` |
+| אגוזי | `#B32959` |
+| תפוז | `#E9922D` |
+| סגול־כהה | `#3A3058` |
+| ירוק סגול | `#80A468` |
+| שריף | `#DF612C` |
+| דיו (טקסט/מסגרת) | `#251327` |
+
+- מסגרות `3px` שחורות, צל קשוח (`6px 6px 0`), כמו הדפס בדיו.
+- פסי מוזאיק צבעוניים בראש העמוד ובין הסקשנים.
+- טיפוגרפיה: **Heebo** (עברי, 900) לכותרות ולגוף, **Archivo Black** לשמות
+  הבירות באנגלית, **Space Mono** לטקסטים טכניים.
+- אפקט נייר: `feTurbulence` grain + סיביות, `mix-blend-mode: multiply`.
+- נגישות: `prefers-reduced-motion` מבטל אנימציות, טבעת פוקוס בולטת,
+  `alt` בעברית לכל תמונה, `dir="rtl"` + `lang="he"` בשורש.
+
+## החלפת תוויות
+
+יש כרגע תווית אמיתית רק ל־Pale Ale. כרטיסי ה־IPA וה־STOUT משתמשים בגליפי SVG
+מצוירים. כדי להחליף: שמור את התווית כ־`assets/`, ועדכן את `src` ואת `alt` בתוך
+`.card--ipa` / `.card--stout` ב־`index.html`.
+
+## תוכן מצאני
+
+שעות הפתיחה, הכתובת, כתובות המייל והמספרים בסטאוטים הם טקסט המצאה לצורך
+הדמו. יש להחליף אותם בפרטי העסק האמיתיים לפני השקה.
+
+## פרסום
+
+מאגר זה מחובר לפרויקט Vercel, ולכן כל push ל־`master` מפעיל deploy אוטומטי.
+
+```bash
+git push origin master
+```
+
+אין שלב build — Vercel מגיש את התיקייה כסטטי.
