@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AMGU'SHA BREWERY — אמגושא // RAW BEER FROM THE WOODS</title>
+<meta name="description" content="Amgu'sha Brewery — small-batch, loud, witchy craft beer. Pale Ale, IPA and Stout brewed in a shed that legally counts as a temple." />
+<meta name="theme-color" content="#141414" />
+<meta property="og:title" content="AMGU'SHA BREWERY — אמגושא" />
+<meta property="og:description" content="Raw beer. Loud taps. Bad decisions." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="assets/mascot.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="age-lock">
+
+<!-- ============ GRAIN + VIGNETTE OVERLAYS ============ -->
+<div class="fx fx-grain" aria-hidden="true"></div>
+<div class="fx fx-scan" aria-hidden="true"></div>
+
+<!-- ============ TOP TICKER ============ -->
+<div class="ticker ticker--top" aria-hidden="true">
+  <div class="ticker__track">
+    <span>BREWED IN A SHED THAT LEGALLY COUNTS AS A TEMPLE&nbsp;★&nbsp;</span>
+    <span>NO ALIENS IN THE FERMENTER (WE CHECK)&nbsp;★&nbsp;</span>
+    <span>4.2% — 11.8% ABV&nbsp;★&nbsp;</span>
+    <span>אמגושא · AMGU'SHA&nbsp;★&nbsp;</span>
+    <span>UNFILTERED · UNAPOLOGETIC · UNBOTTLED SHAME&nbsp;★&nbsp;</span>
+    <span>BREWED IN A SHED THAT LEGALLY COUNTS AS A TEMPLE&nbsp;★&nbsp;</span>
+    <span>NO ALIENS IN THE FERMENTER (WE CHECK)&nbsp;★&nbsp;</span>
+    <span>4.2% — 11.8% ABV&nbsp;★&nbsp;</span>
+    <span>אמגושא · AMGU'SHA&nbsp;★&nbsp;</span>
+    <span>UNFILTERED · UNAPOLOGETIC · UNBOTTLED SHAME&nbsp;★&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ AGE GATE ============ -->
+<div class="agegate" id="agegate" role="dialog" aria-modal="true" aria-labelledby="agegate-title">
+  <div class="agegate__card">
+    <span class="agegate__tape">ADULT ONLY</span>
+    <img class="agegate__mascot" src="assets/mascot.svg" alt="Amgu'sha, the lynx-witch mascot" width="140" height="140" />
+    <h2 class="agegate__title" id="agegate-title">ARE YOU<br />OVER THE HILL?</h2>
+    <p class="agegate__copy">This website contains beer, folklore and one (1) haunted kettle.<br />If you are under 18 — the kettle knows. Go away.</p>
+    <div class="agegate__actions">
+      <button class="btn btn--yes" id="age-yes" type="button">YES, I'M 18+</button>
+      <button class="btn btn--no" id="age-no" type="button">I'M CURIOUS (LIAR)</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <a class="nav__logo" href="#top">
+    <span class="nav__logo-mk">AMGU'SHA</span>
+    <span class="nav__logo-sub">אמגושא // EST. 2019</span>
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#lineup">BEER</a>
+    <a href="#taproom">TAPROOM</a>
+    <a href="#folklore">FOLKLORE</a>
+    <a class="nav__cta" href="#visit">FIND THE SHED <span aria-hidden="true">→</span></a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero__stickers" aria-hidden="true">
+    <span class="sticker sticker--pink">LOUD<br />BEER</span>
+    <span class="sticker sticker--emerald">SMALL<br />BATCH</span>
+    <span class="sticker sticker--yellow">EST.<br />2019</span>
+  </div>
+
+  <div class="hero__mascot-wrap">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <img class="hero__mascot" src="assets/mascot.svg" alt="Amgu'sha — the witch-lynx mascot of Amgu'sha Brewery" width="420" height="420" />
+    <span class="hero__mascot-tag">THE KEEPER OF THE KETTLE</span>
+  </div>
+
+  <div class="hero__copy">
+    <p class="hero__eyebrow"><span>///</span> RAW CRAFT BEER <span>///</span> אמגושא</p>
+    <h1 class="hero__title">
+      <span class="line line--1">BREW IT</span>
+      <span class="line line--2">LOUD</span>
+      <span class="line line--3">&amp; WILD</span>
+    </h1>
+    <p class="hero__lede">
+      We are a two-person brewery in a forest with no street sign, one (1) very old kettle,
+      and a lynx who runs the place. Everything we pour is unfiltered, unapologetic
+      and slightly too strong for your blood type.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--primary btn--xl" href="#lineup">SEE THE LINEUP</a>
+      <a class="btn btn--ghost btn--xl" href="#visit">FIND THE TAPROOM</a>
+    </div>
+    <p class="hero__micro">▸ NEXT POUR: SATURDAY 20:00 · BRING CASH, A JUG, OR A FRIEND WHO OWES YOU MONEY</p>
+  </div>
+</section>
+
+<!-- ============ MID MARQUEE ============ -->
+<div class="ticker ticker--mid" aria-hidden="true">
+  <div class="ticker__track ticker__track--rev">
+    <span>PALE ALE&nbsp;✶&nbsp;IPA&nbsp;✶&nbsp;MILK STOUT&nbsp;✶&nbsp;WITCHES' SPRING&nbsp;✶&nbsp;</span>
+    <span>PALE ALE&nbsp;✶&nbsp;IPA&nbsp;✶&nbsp;MILK STOUT&nbsp;✶&nbsp;WITCHES' SPRING&nbsp;✶&nbsp;</span>
+    <span>PALE ALE&nbsp;✶&nbsp;IPA&nbsp;✶&nbsp;MILK STOUT&nbsp;✶&nbsp;WITCHES' SPRING&nbsp;✶&nbsp;</span>
+    <span>PALE ALE&nbsp;✶&nbsp;IPA&nbsp;✶&nbsp;MILK STOUT&nbsp;✶&nbsp;WITCHES' SPRING&nbsp;✶&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ LINEUP ============ -->
+<section class="section lineup" id="lineup">
+  <header class="section__head">
+    <h2 class="section__title">THE&nbsp;LINEUP</h2>
+    <p class="section__note">( 3 beers. 0 apologies. )</p>
+    <span class="section__tape">TAP LIST — ALWAYS ROTATING</span>
+  </header>
+
+  <div class="cards">
+
+    <article class="card card--pale">
+      <div class="card__tape card__tape--tl">HOUSE FAVOURITE</div>
+      <header class="card__head">
+        <h3 class="card__name">WITCHES'<br />SPRING</h3>
+        <p class="card__style">PALE ALE</p>
+      </header>
+      <div class="card__stats">
+        <div class="stat"><span class="stat__k">ABV</span><span class="stat__v">5.2%</span></div>
+        <div class="stat"><span class="stat__k">IBU</span><span class="stat__v">32</span></div>
+        <div class="stat"><span class="stat__k">OG</span><span class="stat__v">1.048</span></div>
+      </div>
+      <p class="card__desc">
+        Bright, sneaky, dangerous. Simcoe &amp; Citra with a whisper of coriander
+        that we still argue about at the table.
+      </p>
+      <ul class="tags">
+        <li>CITRUS</li><li>HERBAL</li><li>DANGEROUSLY DRINKABLE</li>
+      </ul>
+      <span class="card__scribble" aria-hidden="true">✦</span>
+    </article>
+
+    <article class="card card--ipa">
+      <div class="card__tape card__tape--tr">DO NOT SIP. SIP ANYWAY.</div>
+      <header class="card__head">
+        <h3 class="card__name">LYNX<br />KILLER</h3>
+        <p class="card__style">WEST COAST IPA</p>
+      </header>
+      <div class="card__stats">
+        <div class="stat"><span class="stat__k">ABV</span><span class="stat__v">6.8%</span></div>
+        <div class="stat"><span class="stat__k">IBU</span><span class="stat__v">64</span></div>
+        <div class="stat"><span class="stat__k">OG</span><span class="stat__v">1.066</span></div>
+      </div>
+      <p class="card__desc">
+        Pine, grapefruit, and a resinous bitter punch. Named after our cat,
+        who has never lost a fight and never will.
+      </p>
+      <ul class="tags">
+        <li>PINE</li><li>GRAPEFRUIT</li><li>BITTER</li><li>RESIN</li>
+      </ul>
+      <span class="card__scribble" aria-hidden="true">✦</span>
+    </article>
+
+    <article class="card card--stout">
+      <div class="card__tape card__tape--tr">BREWED IN JANUARY. ON PURPOSE.</div>
+      <header class="card__head">
+        <h3 class="card__name">BLACK<br />CATHAIR</h3>
+        <p class="card__style">MILK STOUT</p>
+      </header>
+      <div class="card__stats">
+        <div class="stat"><span class="stat__k">ABV</span><span class="stat__v">7.4%</span></div>
+        <div class="stat"><span class="stat__k">IBU</span><span class="stat__v">48</span></div>
+        <div class="stat"><span class="stat__k">OG</span><span class="stat__v">1.074</span></div>
+      </div>
+      <p class="card__desc">
+        Oats, lactose, midnight roast. Tastes like a forest floor after a fire.
+        Pours like a tar pit. Cleans the glass eventually.
+      </p>
+      <ul class="tags">
+        <li>COCOA</li><li>CREAM</li><li>ASH</li><li>NO RETURN</li>
+      </ul>
+      <span class="card__scribble" aria-hidden="true">✦</span>
+    </article>
+
+    <article class="card card--secret">
+      <div class="card__tape card__tape--tl">SEASONAL / WHEN WE FEEL IT</div>
+      <header class="card__head">
+        <h3 class="card__name">???</h3>
+        <p class="card__style">BATCH 004 — NOT YET</p>
+      </header>
+      <div class="card__stats">
+        <div class="stat"><span class="stat__k">ABV</span><span class="stat__v">11.8%?</span></div>
+        <div class="stat"><span class="stat__k">IBU</span><span class="stat__v">???</span></div>
+        <div class="stat"><span class="stat__k">OG</span><span class="stat__v">???</span></div>
+      </div>
+      <p class="card__desc">
+        It has a moth in it. We are not going to explain further.
+        When it's ready it's ready. Show up and find out.
+      </p>
+      <ul class="tags">
+        <li>FERMENTING</li><li>UNSTABLE</li><li>HONEST</li>
+      </ul>
+      <span class="card__scribble" aria-hidden="true">✦</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ TAPROOM ============ -->
+<section class="section taproom" id="taproom">
+  <div class="plank">
+    <h2 class="plank__title">THE TAPROOM</h2>
+    <p class="plank__sub">אמגושא // שדה הברויות</p>
+  </div>
+
+  <div class="taproom__grid">
+    <div class="slab">
+      <h3 class="slab__title">HOURS</h3>
+      <dl class="hours">
+        <div><dt>THU</dt><dd>17:00 — 00:00</dd></div>
+        <div><dt>FRI</dt><dd>17:00 — 02:00</dd></div>
+        <div><dt>SAT</dt><dd>12:00 — 03:00</dd></div>
+        <div><dt>SUN</dt><dd>12:00 — 20:00</dd></div>
+        <div class="hours__closed"><dt>MON — WED</dt><dd>WE ARE BREWING / WE ARE SLEEPING</dd></div>
+      </dl>
+    </div>
+
+    <div class="slab slab--map">
+      <h3 class="slab__title">FIND THE SHED</h3>
+      <div class="map" role="img" aria-label="Hand-drawn map: follow the two rusted signs, take the dirt road, if you see a fox you are close, if you see a shrine you have gone too far.">
+        <svg viewBox="0 0 300 200" aria-hidden="true" width="100%" height="100%">
+          <rect width="300" height="200" fill="#F2EADF" />
+          <g stroke="#141414" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M12 150 C 60 140, 70 100, 110 96 S 170 60, 200 72 S 260 60, 288 40" stroke-dasharray="10 8" />
+            <path d="M40 20 L40 60 M32 28 L48 28 M36 22 L44 34" />
+            <path d="M120 40 l14 14 M134 40 l-14 14" />
+            <path d="M250 150 l12 12 M262 150 l-12 12" />
+          </g>
+          <g fill="#141414">
+            <circle cx="110" cy="96" r="7" />
+            <text x="126" y="92" font-family="'Space Mono', monospace" font-size="13" font-weight="700">SHED</text>
+            <text x="14" y="176" font-family="'Space Mono', monospace" font-size="10">FOLLOW THE TWO RUSTED SIGNS</text>
+            <text x="14" y="190" font-family="'Space Mono', monospace" font-size="10">FOX = CLOSE. SHRINE = TOO FAR.</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="slab slab--rules">
+      <h3 class="slab__title">HOUSE RULES</h3>
+      <ol class="rules">
+        <li>You are over 18. This is not a discussion.</li>
+        <li>Cash or card. The kettle does not care.</li>
+        <li>Do not touch the fermenters. They bite.</li>
+        <li>Do not ask about Batch 004. Ask about Batch 004.</li>
+        <li>Take your litter home. The lynx judges.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOLKLORE ============ -->
+<section class="section folklore" id="folklore">
+  <div class="scroll">
+    <h2 class="scroll__title">THE FOLKLORE</h2>
+    <div class="scroll__body">
+      <p><strong>Amgu'sha</strong> (אמגושא) is the name of a lynx who used to sit on the ridge
+        above the valley and watch the forest. She was not a good cat, and she was not a bad one.
+        She was <em>attentive</em>.</p>
+      <p>They say she drank from a stream where the water ran over hot rock, and where it touched
+        her tongue the water learned to <em>taste like something</em>. We named the brewery after her.
+        We are not entirely sure she approved.</p>
+      <p>The kettle is older than the shed. The shed is older than the road. The road is older
+        than the forest's memory, and the forest remembers everything.</p>
+      <p class="scroll__sig">— scratched into the shed door, in something that is probably paint</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT / CTA ============ -->
+<section class="section visit" id="visit">
+  <div class="visit__card">
+    <h2 class="visit__title">COME<br />DRINK<br />SOMETHING<br />STRANGE</h2>
+    <div class="visit__side">
+      <p class="visit__copy">Taps open Thu–Sun. Bring a jug. Tell a stranger about it on the way home.</p>
+      <a class="btn btn--primary btn--xl" href="mailto:drink@amgusha.brew">BOOK A GROWLER</a>
+      <a class="btn btn--ghost btn--xl" href="mailto:hello@amgusha.brew">SAY SHALOM</a>
+      <address class="visit__addr">
+        Amgu'sha Brewery · אמגושא<br />
+        The Ridge Road, past the two rusted signs<br />
+        Nowhere you can spell
+      </address>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="ticker ticker--foot" aria-hidden="true">
+    <div class="ticker__track">
+      <span>DRINK RESPONSIBLY&nbsp;◆&nbsp;אחריות&nbsp;◆&nbsp;DRINK RESPONSIBLY&nbsp;◆&nbsp;</span>
+      <span>BREWED WITH FEAR AND A STOVE&nbsp;◆&nbsp;</span>
+      <span>NO ALIENS IN THE FERMENTER&nbsp;◆&nbsp;</span>
+      <span>DRINK RESPONSIBLY&nbsp;◆&nbsp;אחריות&nbsp;◆&nbsp;DRINK RESPONSIBLY&nbsp;◆&nbsp;</span>
+      <span>BREWED WITH FEAR AND A STOVE&nbsp;◆&nbsp;</span>
+      <span>NO ALIENS IN THE FERMENTER&nbsp;◆&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <img src="assets/mascot.svg" alt="" width="90" height="90" />
+      <p class="footer__name">AMGU'SHA<br /><span>אמגושא</span></p>
+    </div>
+
+    <nav class="footer__social" aria-label="Social">
+      <a href="#" class="social social--ig">INSTAGRAM</a>
+      <a href="#" class="social social--x">X / TWITTER</a>
+      <a href="#" class="social social--fb">FACEBOOK</a>
+      <a href="#" class="social social--mail">EMAIL</a>
+    </nav>
+
+    <p class="footer__legal">
+      © 2019–<span id="year">2026</span> AMGU'SHA BREWERY LTD.<br />
+      ALL RIGHTS RESERVED, MOST BEERS FORGOTTEN.<br />
+      <span class="footer__he">אל תשתוו יות מדי. תהיו בבית קודם.</span>
+    </p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

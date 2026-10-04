@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Amgu'sha — the witch-lynx mascot">
+  <defs>
+    <style>
+      .ln{stroke:#141414;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;fill:none}
+      .fl{stroke:#141414;stroke-width:6;stroke-linejoin:round}
+    </style>
+  </defs>
+
+  <!-- witch hat brim -->
+  <ellipse class="fl" cx="100" cy="88" rx="78" ry="17" fill="#FFE600"/>
+  <!-- hat cone -->
+  <path class="fl" d="M100 10 C 118 38, 134 58, 142 84 L 58 84 C 66 58, 82 38, 100 10 Z" fill="#5B21B6"/>
+  <!-- hat buckle -->
+  <rect x="86" y="66" width="28" height="20" fill="#FF2D8D" stroke="#141414" stroke-width="5"/>
+
+  <!-- lynx ears -->
+  <path class="fl" d="M46 74 L38 26 L78 52 Z" fill="#FF6A00"/>
+  <path class="fl" d="M154 74 L162 26 L122 52 Z" fill="#FF6A00"/>
+
+  <!-- head -->
+  <path class="fl" d="M40 96 C 40 62, 62 50, 100 50 C 138 50, 160 62, 160 96
+           C 160 138, 132 158, 100 158 C 68 158, 40 138, 40 96 Z" fill="#F4EDDF"/>
+
+  <!-- cheek ruffs -->
+  <path class="fl" d="M40 112 L24 106 L34 128 L18 134 L40 142 Z" fill="#F4EDDF"/>
+  <path class="fl" d="M160 112 L176 106 L166 128 L182 134 L160 142 Z" fill="#F4EDDF"/>
+
+  <!-- eyes -->
+  <path class="fl" d="M58 92 L86 84" />
+  <path class="fl" d="M114 84 L142 92" />
+  <circle cx="72" cy="98" r="9" fill="#00C46A" stroke="#141414" stroke-width="5"/>
+  <circle cx="128" cy="98" r="9" fill="#00C46A" stroke="#141414" stroke-width="5"/>
+  <circle cx="75" cy="95" r="3" fill="#141414"/>
+  <circle cx="131" cy="95" r="3" fill="#141414"/>
+
+  <!-- nose + mouth -->
+  <path class="fl" d="M100 116 L92 124 L108 124 Z" fill="#FF2D8D"/>
+  <path class="fl" d="M86 134 Q100 146 114 134"/>
+  <path class="ln" d="M100 140 L100 146"/>
+  <!-- whisker / fang -->
+  <path class="ln" d="M108 142 L112 154" stroke="#141414" stroke-width="5"/>
+
+  <!-- pendant -->
+  <circle cx="100" cy="168" r="12" fill="#FF2D8D" stroke="#141414" stroke-width="5"/>
+  <path class="ln" d="M100 158 L100 163"/>
+</svg>
